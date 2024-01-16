@@ -10,7 +10,7 @@ if(isset($_SESSION['cid'])){
 	while($data = $userQuery->fetch()){
 		$pangalan = $data['fname'];
 		$apelyido = $data['lname'];
-		$larawan = $data['img'];
+		$picture = $data['img'];
 	}
 } else {
 	header("Location:login.php");

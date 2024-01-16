@@ -46,7 +46,6 @@ if(isset($_POST['register'])){
                 VALUES (:fname,  :lname,  :email, :uname, :pword, :img)");
                 $query->bindParam(":fname", $fname);
                 $query->bindParam(":lname", $lname);
-
                 $query->bindParam(":email", $email);
                 $query->bindParam(":uname", $uname);
                 $query->bindParam(":pword", $pword);
