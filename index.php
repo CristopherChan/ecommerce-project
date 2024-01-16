@@ -10,6 +10,7 @@ include_once("session.php");
 </head>
 
 <body>
+    
 <h1>Registration Form</h1>
 <h3>Hello Welcome <?php echo $pangalan." ".$apelyido;?></h3> <img src="upload/<?php echo $picture;?>" alt="User Profile" width="70">
 <a href="viewrecords.php">View Records</a> | <a href="logout.php">Logout</a><br><br>
