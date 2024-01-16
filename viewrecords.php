@@ -14,7 +14,7 @@ include_once("session.php");
 
 <body>
 <h1>All Records</h1>
-<h3>Hello Welcome <?php echo $pangalan." ".$apelyido;?></h3>
+<h3>Hello Welcome <?php echo $firstN." ".$last;?></h3>
 <a href="index.php">Add Records</a> | <a href="viewrecords.php">View Records</a> | <a href="logout.php">Logout</a><br><br>
 
 <table border>

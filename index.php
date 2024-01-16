@@ -11,7 +11,7 @@ include_once("session.php");
 
 <body>
 <h1>Registration Form</h1>
-<h3>Hello Welcome <?php echo $pangalan." ".$apelyido;?></h3> <img src="photos/<?php echo $larawan;?>" alt="User Profile" width="70">
+<h3>Hello Welcome <?php echo $firstN." ".$last;?></h3> <img src="photos/<?php echo $larawan;?>" alt="User Profile" width="70">
 <a href="viewrecords.php">View Records</a> | <a href="logout.php">Logout</a><br><br>
 <form action="insert.php" method="post" enctype="multipart/form-data">
     <table>
