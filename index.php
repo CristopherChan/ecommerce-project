@@ -13,6 +13,13 @@ include_once("session.php");
 <h1>Registration Form</h1>
 <h3>Hello Welcome <?php echo $pangalan." ".$apelyido;?></h3> <img src="upload/<?php echo $picture;?>" alt="User Profile" width="70">
 <a href="viewrecords.php">View Records</a> | <a href="logout.php">Logout</a><br><br>
+
+<form action="search.php" method="post">
+<input type="text" placeholder="search here..." name="search">
+<input type="submit" name="find" id="find" value="search">
+
+</form>
+<br>
 <form action="insert.php" method="post" enctype="multipart/form-data">
     <table>
         <tr>
