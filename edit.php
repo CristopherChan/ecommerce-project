@@ -5,13 +5,12 @@ include_once("session.php");
 
 $uid = $_GET['uid'];
 
-$select = $conn->prepare("SELECT fname, mname, lname, pword FROM customers WHERE customerID = :id");
+$select = $conn->prepare("SELECT fname, lname, pword FROM customers WHERE customerID = :id");
 $select->bindParam(":id", $uid);
 			$select->execute();
 			
 			while($row = $select->fetch()){
 				$firstN = $row['fname'];
-				$middle = $row['mname'];
 				$last = $row['lname'];
                 $password = $row['pword'];
 
@@ -20,14 +19,12 @@ $select->bindParam(":id", $uid);
 if(isset($_POST['update'])){
 	
 	$firstname = $_POST['fname'];
-	$middlename = $_POST['mname'];
 	$lastname = $_POST['lname'];
     $password = $_POST['pword'];
 
 	
-	$query = $conn->prepare("UPDATE customers SET fname = :isa, mname = :dalawa, lname = :tatlo, pword = :apat WHERE customerID = :uid");
+	$query = $conn->prepare("UPDATE customers SET fname = :isa, lname = :tatlo, pword = :apat WHERE customerID = :uid");
 	$query->bindParam(":isa",$firstname);
-	$query->bindParam(":dalawa",$middlename);
 	$query->bindParam(":tatlo",$lastname);
     $query->bindParam(":apat",$password);
 	$query->bindParam(":uid", $uid);
@@ -54,10 +51,7 @@ if(isset($_POST['update'])){
             <td>Firstname</td>
             <td><input type="text" name="fname" value="<?php echo $firstN; ?>" required></td>
         </tr>
-        <tr>
-            <td>Middlename</td>
-            <td><input type="text" name="mname" value="<?php echo $middle; ?>"></td>
-        </tr>
+        
         <tr>
             <td>Lastname</td>
             <td><input type="text" name="lname" value="<?php echo $last; ?>" required></td>
