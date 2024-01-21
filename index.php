@@ -43,6 +43,12 @@ include_once("session.php");
             <td>Password</td>
             <td><input type="password" name="pword" placeholder="Enter Password" required></td>
         </tr>
+        <tr>
+            <select name="user_type">
+                <option value="admin">Admin</option>
+                <option value="user">user</option>
+            </select>
+        </tr>
 		<tr>
             <td>Picture</td>
             <td><input type="file" name="img" accept="image/*" required></td>

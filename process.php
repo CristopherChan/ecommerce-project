@@ -7,7 +7,7 @@ if(isset($_POST['login'])){
 	
 	session_start();
 	
-	$statement = $conn->prepare("SELECT customerID FROM customers WHERE uname = :uname AND pword = :pword");
+	$statement = $conn->prepare("SELECT customerID, user_type FROM customers WHERE uname = :uname AND pword = :pword");
 	$statement->bindParam(':uname',$username);
 	$statement->bindParam(':pword',$password);
 	$statement->execute();
@@ -17,11 +17,15 @@ if(isset($_POST['login'])){
 	if($count > 0){
 		while($row = $statement->fetch()){
 			$id = $row['customerID'];
-			
+			$role = $row['user_type'];
 			$_SESSION['cid'] = $id;
+
+			if ($role == 'user') {
 			header("Location:index.php");
-			
-		}
+			}else if ($role == 'admin'){
+			header("Location:viewrecords.php");
+			}
+	}
 	} else {
 		echo "<script>alert('Sorry, Wrong Username or Password')</script>";
 		echo "<script>window.open('login.php','_self')</script>";

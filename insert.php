@@ -6,6 +6,7 @@ if(isset($_POST['register'])){
     $lname = htmlentities($_POST['lname']);
     $email = htmlentities($_POST['email']);
     $uname = htmlentities($_POST['uname']);
+    $user_type = htmlentities($_POST['user_type']);
     $pword = sha1($_POST['pword']);
     
     // Check for existing username
@@ -42,13 +43,14 @@ if(isset($_POST['register'])){
         if($imgSize <5000000){
           move_uploaded_file($tmpName,$upload_dir.$newname);
           
-                $query = $conn->prepare("INSERT INTO customers (fname, lname,  email, uname, pword, img) 
-                VALUES (:fname,  :lname,  :email, :uname, :pword, :img)");
+                $query = $conn->prepare("INSERT INTO customers (fname, lname,  email, uname, pword, user_type, img) 
+                VALUES (:fname,  :lname,  :email, :uname, :pword, :user_type, :img)");
                 $query->bindParam(":fname", $fname);
                 $query->bindParam(":lname", $lname);
                 $query->bindParam(":email", $email);
                 $query->bindParam(":uname", $uname);
                 $query->bindParam(":pword", $pword);
+                $query->bindParam(":user_type",$user_type);
                 $query->bindParam(":img", $newname);
                 $query->execute();
 
